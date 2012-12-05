@@ -8,6 +8,5 @@ would do the right thing and facter facts are set properly.
 
 h2. Usage
 <pre> $ facter -p landb_location </pre> 
-gets the location of your host 
 
 Other facts: landb_responsible_name, landb_responsible_email. Feel free to extend it.
