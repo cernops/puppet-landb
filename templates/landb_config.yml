@@ -1,0 +1,7 @@
+# A very limited default landb configuration 
+# Uncomment username/password and fill in with your information for more
+# advanced landb queries.
+
+wsdl: https://network.cern.ch/sc/soap/soap.fcgi?v=4&WSDL
+# username: test
+# password: test 
