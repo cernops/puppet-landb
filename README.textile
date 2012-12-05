@@ -1,4 +1,4 @@
-h1. Puppet-Landb "!https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME] 
+h1. Puppet-Landb "!https://travis-ci.org/cernops/puppet-landb.png!":https://travis-ci.org/cernops/puppet-landb
 
 h3. A puppet module that handles landb operations using landb-gem and 
 a SOAP connection to network.cern.ch
@@ -7,9 +7,7 @@ Test by running "rake spec" on the main directory. Tests will check the manifest
 would do the right thing and facter facts are set properly. 
 
 h2. Usage
-<pre>
-$ facter -p landb_location
-</pre> - gets the location of your host 
+<pre> $ facter -p landb_location </pre> 
+gets the location of your host 
 
-Other facts: landb_responsible_name, landb_responsible_email... feel free to
-extend it.
+Other facts: landb_responsible_name, landb_responsible_email. Feel free to extend it.
