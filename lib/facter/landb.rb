@@ -23,9 +23,10 @@ class LandbWrapper
   end
 
   def add_landb_location
+    location = @client.get_my_device_info([]).device_info.location
+
     Facter.add("landb_location") do 
       setcode do 
-        location = @client.get_my_device_info([]).device_info.location
         "#{location.building}-#{location.floor}-#{location.room}"
       end
     end         

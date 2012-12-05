@@ -25,6 +25,7 @@ end
 describe 'landb_facts' do
   it 'creates a new fact landb_location' do
     Facter.fact(:landb_location).class.should == Facter::Util::Fact
+    Facter.value(:landb_location).class.should == String
   end
   
   it 'creates a new fact responsible name' do
