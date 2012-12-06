@@ -49,8 +49,10 @@ class LandbWrapper
   end
 end
 
-facter_landb = LandbWrapper.new
-if !facter_landb.nil?
-  facter_landb.add_landb_location
-  facter_landb.add_responsible_info
+if File.exists?("/etc/puppet/landb_config.yaml")
+  facter_landb = LandbWrapper.new
+  if !facter_landb.nil? # could be nil if yaml is not possible to parse
+    facter_landb.add_landb_location
+    facter_landb.add_responsible_info
+  end
 end
