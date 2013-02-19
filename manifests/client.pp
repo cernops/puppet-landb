@@ -1,11 +1,9 @@
 class landb::client {
     package{"rubygem-savon":
-      provider    => 'yum',
       ensure      => 'latest',
     }   
 
     package{"rubygem-landb":
-      provider    => 'yum',
       ensure      => 'latest',
     }   
 

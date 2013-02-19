@@ -1,4 +1,6 @@
-require 'landb'
+begin
+require 'landb' 
+require 'savon'
 require 'time'
 
 class LandbWrapper
@@ -117,7 +119,8 @@ facts_cache_dir  = '/etc/puppet/facts.d'
 landb_cache_file = facts_cache_dir + '/landb_cache.yaml'
 
 facts_cache_ttl = 432000 #1 week (in seconds)
-debug = false
+
+debug = false 
 
 if File::exist?(landb_cache_file) then
   landb_cache = YAML.load_file(landb_cache_file)
@@ -130,7 +133,12 @@ end
 
 # Writes if cache has been purged, or fact exceeds TTL
 if !landb_cache || (Time.now - cache_time) > facts_cache_ttl
-  landb_data = get_landb_information
+  begin
+    landb_data = get_landb_information
+  rescue 
+    puts "Couldn't contact landb" if debug
+    exit
+  end
   begin
     Dir.mkdir(facts_cache_dir) if !File::exists?(facts_cache_dir)
     File.open(landb_cache_file, 'w') do |out|
@@ -146,4 +154,6 @@ else
   end
 end
 
-
+rescue LoadError 
+  puts 'LoadError: gem landb/savon are not installed. Install them using "yum install rubygem-landb rubygem-savon"'
+end  
